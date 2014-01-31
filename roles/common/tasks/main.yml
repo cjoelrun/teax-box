@@ -2,7 +2,7 @@
 # base setup tasks
 
 - name: Install basics
-  pacman: pkg={{ name }} state=installed
+  pacman: pkg={{ item }} state=installed
   with_items:
     - sudo
     - emacs
