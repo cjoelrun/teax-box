@@ -15,3 +15,5 @@
     - tmux
     - curl
     - wget
+
+- include: user.yml
