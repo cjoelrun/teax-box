@@ -1,6 +1,9 @@
 ---
 # base setup tasks
 
+- name: update pacman
+  pacman: name=pacman state=installed update_cache=yes
+
 - name: Install basics
   pacman: pkg={{ item }} state=installed
   with_items:
@@ -12,6 +15,3 @@
     - tmux
     - curl
     - wget
-
-- name: create user
-  user: name={{ user }} state=present shell=/usr/bin/zsh groups=sudo,users

@@ -1,0 +1,11 @@
+---
+# adds main user
+
+- name: add sudo group
+  group: name=sudo state=present
+
+- name: give sudo group sudo powers
+  template: src=sudoers.in dest=/etc/sudoers validate="visudo %s"
+
+- name: create user
+  user: name={{ user }} state=present shell=/usr/bin/zsh groups=sudo,users
