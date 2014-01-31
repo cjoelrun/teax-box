@@ -1,0 +1,17 @@
+---
+# base setup tasks
+
+- name: Install basics
+  pacman: pkg={{ name }} state=installed
+  with_items:
+    - sudo
+    - emacs
+    - htop
+    - zsh
+    - git
+    - tmux
+    - curl
+    - wget
+
+- name: create user
+  user: name={{ user }} state=present shell=/usr/bin/zsh groups=sudo,users
