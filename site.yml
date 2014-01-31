@@ -1,0 +1,10 @@
+- hosts: all
+  user: {{ user }}
+  sudo: True
+  gather_facts: True
+  vars_files:
+    - vars/defaults.yml
+    - vars/user.yml
+
+  roles:
+    - common
