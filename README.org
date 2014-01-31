@@ -1,0 +1,15 @@
+* Teax-Box
+  The only things that matter
+
+  - tmux
+  - emacs
+  - arch
+  - xmonad
+
+** How things are done
+
+*** Image
+    Uses [[https://github.com/elasticdog/packer-arch][packer-arch]] to create base arch image
+
+*** Dotfiles
+    Uses a [[https://github.com/jbernard/dotfiles][dotfiles]] repo to connect the dots
