@@ -1,5 +1,5 @@
 - hosts: all
-  user: {{ user }}
+  user: vagrant
   sudo: True
   gather_facts: True
   vars_files:
