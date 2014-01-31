@@ -1,6 +1,13 @@
 - hosts: all
   user: vagrant
   sudo: True
+  gather_facts: False
+  tasks:
+    - raw: pacman -Sy --noconfirm python2
+
+- hosts: all
+  user: vagrant
+  sudo: True
   gather_facts: True
   vars_files:
     - vars/defaults.yml
