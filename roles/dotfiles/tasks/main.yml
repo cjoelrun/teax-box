@@ -1,0 +1,13 @@
+# put dotfiles into place
+
+- name: clone dotfiles into place
+  git: repo={{ dotfiles_repo }} dest={{ dotfiles_dest }}
+
+- name: install dotfiles
+  pip: name=dotfiles
+
+- name: set up dotfiles to use repo
+  command: ln -s {{ dotfiles_repo }} /home/{{ user }}/Dotfiles
+
+- name: sync dotfiles
+  command: dotfiles --sync
