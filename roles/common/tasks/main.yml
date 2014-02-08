@@ -16,6 +16,7 @@
     - curl
     - wget
     - python2-pip
+    - xclip
 
 - name: default pip2
   command: ln -sf /usr/bin/pip2 /usr/local/bin/pip
