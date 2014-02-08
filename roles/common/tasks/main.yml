@@ -7,13 +7,11 @@
 - name: install basics packages
   pacman: pkg={{ item }} state=installed
   with_items:
-    - sudo
     - emacs
     - htop
     - zsh
     - git
     - tmux
-    - curl
     - wget
     - python2-pip
     - xclip
