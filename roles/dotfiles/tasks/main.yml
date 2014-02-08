@@ -15,6 +15,9 @@
   command: ln -sf {{ dotfiles_dest }} /home/{{ user }}/Dotfiles
   sudo_user: "{{ user }}"
 
+- name: configure dotfiles
+  template: src=dotfilesrc  dest="/home/{{ user }}/dotfilesrc" owner="{{ user }}" group="{{ user }}" mode=0644
+
 - name: sync
-  command: dotfiles --sync || dotfiles --sync --force
+  command: dotfiles --sync --force
   sudo_user: "{{ user }}"
