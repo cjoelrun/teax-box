@@ -8,10 +8,13 @@
   user: name=vagrant groups=sudo
 
 - name: send sudoers file
-  file: src=sudoers.in dest=/etc/sudoers.tmp owner=root group=root mode=0440
+  template: src=sudoers.in dest=/etc/sudoers.tmp owner=root group=root mode=0440
 
 - name: check sudoers file and enable sudo group
   shell: visudo -c -f /etc/sudoers.tmp && cp -f /etc/sudoers.tmp /etc/sudoers
 
 - name: create user
   user: name={{ user }} state=present shell=/usr/bin/zsh groups=sudo,users
+
+- name: add host key
+  authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

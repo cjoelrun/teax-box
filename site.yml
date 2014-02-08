@@ -1,10 +1,12 @@
+# get python on the box
 - hosts: all
-  user: vagrant
+  remote_user: vagrant
   sudo: True
   gather_facts: False
   tasks:
-    - raw: pacman -Sy --noconfirm python2
+    - raw: python2 --version || pacman -Sy --noconfirm python2
 
+# install basics
 - hosts: all
   user: vagrant
   sudo: True
@@ -12,7 +14,6 @@
   vars_files:
     - vars/defaults.yml
     - vars/user.yml
-
   roles:
     - common
     - dotfiles

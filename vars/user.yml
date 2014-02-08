@@ -1,2 +1,4 @@
 user: cameron
 dotfiles_repo: https://github.com/cjoelrun/dotfiles.git
+work_directory: "/home/{{ user }}/work"
+dotfiles_dest: "{{ work_directory }}/dotfiles"

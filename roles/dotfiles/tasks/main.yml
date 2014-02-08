@@ -1,13 +1,20 @@
 # put dotfiles into place
 
-- name: clone dotfiles into place
-  git: repo={{ dotfiles_repo }} dest={{ dotfiles_dest }}
+- name: make directory
+  file: path={{ dotfiles_dest }} state=directory
+  sudo_user: "{{ user }}"
 
-- name: install dotfiles
-  pip: name=dotfiles
+- name: clone into place
+  action: git repo={{ dotfiles_repo }} dest={{ dotfiles_dest }}
+  sudo_user: "{{ user }}"
 
-- name: set up dotfiles to use repo
-  command: ln -s {{ dotfiles_repo }} /home/{{ user }}/Dotfiles
+- name: install command
+  pip: name=dotfiles executable=/usr/bin/pip2
 
-- name: sync dotfiles
-  command: dotfiles --sync
+- name: connect to repo
+  command: ln -sf {{ dotfiles_dest }} /home/{{ user }}/Dotfiles
+  sudo_user: "{{ user }}"
+
+- name: sync
+  command: dotfiles --sync || dotfiles --sync --force
+  sudo_user: "{{ user }}"

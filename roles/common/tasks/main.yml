@@ -4,7 +4,7 @@
 - name: update pacman
   pacman: name=pacman state=installed update_cache=yes
 
-- name: Install basics
+- name: install basics packages
   pacman: pkg={{ item }} state=installed
   with_items:
     - sudo
@@ -15,5 +15,17 @@
     - tmux
     - curl
     - wget
+    - python2-pip
 
+- name: default pip2
+  command: ln -sf /usr/bin/pip2 /usr/local/bin/pip
+
+- name: default python2
+  command: ln -sf /usr/bin/python2 /usr/local/bin/python
+
+- name: install basic python pacakges
+  pip: name={{ item }} executable=/usr/bin/pip2
+  with_items:
+    - virtualenvwrapper
+    - httpie
 - include: user.yml
