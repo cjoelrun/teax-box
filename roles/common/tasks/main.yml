@@ -4,6 +4,9 @@
 - name: update pacman
   pacman: name=pacman state=installed update_cache=yes
 
+- name: update pacman keys
+  command: pacman-key --init && pacman-key --populate archlinux
+
 - name: install basics packages
   pacman: pkg={{ item }} state=installed
   with_items:
@@ -28,4 +31,5 @@
   with_items:
     - virtualenvwrapper
     - httpie
+
 - include: user.yml
