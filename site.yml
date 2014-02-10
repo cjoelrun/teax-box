@@ -18,3 +18,5 @@
     - common
     - dotfiles
     - emacs
+    - x
+    - xmonad
