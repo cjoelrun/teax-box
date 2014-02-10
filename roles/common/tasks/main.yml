@@ -4,8 +4,11 @@
 - name: update pacman
   pacman: name=pacman state=installed update_cache=yes
 
+- name: init pacman keys
+  command: pacman-key --init
+
 - name: update pacman keys
-  command: pacman-key --init && pacman-key --populate archlinux
+  command: pacman-key --populate archlinux
 
 - name: install basics packages
   pacman: pkg={{ item }} state=installed
