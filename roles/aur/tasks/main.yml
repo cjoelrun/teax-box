@@ -1,1 +1,9 @@
-- name: add yaourt to 
+- name: add yaourt repo
+  lineinfile: dest=/etc/pacman.conf regexp='$item' insertafter=EOF line='$item'
+  with_items:
+    - [archlinuxfr]
+    - SigLevel = Never
+    - Server = http://repo.archlinux.fr/$arch
+
+- name: install yaourt
+  pacman: pkg=yaourt state=installed update_cache=yes
