@@ -16,7 +16,7 @@
   sudo_user: "{{ user }}"
 
 - name: configure dotfiles
-  template: src=dotfilesrc  dest="/home/{{ user }}/dotfilesrc" owner="{{ user }}" group="{{ user }}" mode=0644
+  template: src=dotfilesrc  dest="/home/{{ user }}/.dotfilesrc" owner="{{ user }}" group="{{ user }}" mode=0644
 
 - name: sync
   command: dotfiles --sync --force

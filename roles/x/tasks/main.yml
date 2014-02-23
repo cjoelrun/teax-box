@@ -1,0 +1,9 @@
+- name: install xorg packages
+  pacman: pkg={{ item }} state=installed
+  with_items:
+    - xorg-xinit
+    - xorg-xrdb
+    - xorg-xset
+    - xorg-xsetroot
+    - pkgfile
+    - rxvt-unicode

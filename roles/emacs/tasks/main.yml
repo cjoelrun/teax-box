@@ -1,2 +1,3 @@
 - name: start emacs daemon
   command: emacs --daemon
+  sudo_user: "{{ user }}"

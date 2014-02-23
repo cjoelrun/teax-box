@@ -4,6 +4,12 @@
 - name: update pacman
   pacman: name=pacman state=installed update_cache=yes
 
+- name: init pacman keys
+  command: pacman-key --init
+
+- name: update pacman keys
+  command: pacman-key --populate archlinux
+
 - name: install basics packages
   pacman: pkg={{ item }} state=installed
   with_items:
@@ -16,6 +22,8 @@
     - python2-pip
     - xclip
     - hub
+    - traceroute
+    - sshpass
 
 - name: default pip2
   command: ln -sf /usr/bin/pip2 /usr/local/bin/pip
@@ -28,4 +36,5 @@
   with_items:
     - virtualenvwrapper
     - httpie
+
 - include: user.yml
