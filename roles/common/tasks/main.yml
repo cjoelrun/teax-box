@@ -37,4 +37,7 @@
     - virtualenvwrapper
     - httpie
 
+- name: template ansible config
+  template: src=ansible.cfg dest="/home/{{ user }}/.ansible.cfg" owner="{{ user }}" group="{{ user }}" mode=0644
+
 - include: user.yml
