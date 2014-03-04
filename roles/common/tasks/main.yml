@@ -36,6 +36,11 @@
   with_items:
     - virtualenvwrapper
     - httpie
+    - elpy
+    - ipython
+    - ansible
+    - jedi
+    - rope
 
 - name: template ansible config
   template: src=ansible.cfg dest="/home/{{ user }}/.ansible.cfg" owner="{{ user }}" group="{{ user }}" mode=0644
