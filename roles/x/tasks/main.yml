@@ -7,3 +7,8 @@
     - xorg-xsetroot
     - pkgfile
     - rxvt-unicode
+    - dmenu
+    - ttf-inconsolata
+
+- name: install conkeror
+  command: yaourt -S conkeror-git --noconfirm

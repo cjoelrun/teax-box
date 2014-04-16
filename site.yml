@@ -18,6 +18,6 @@
     - common
     - dotfiles
     - emacs
+    - aur
     - x
     - xmonad
-    - aur
