@@ -1,3 +1,4 @@
+remote_user: vagrant
 user: cameron
 dotfiles_repo: https://github.com/cjoelrun/dotfiles.git
 work_directory: "/home/{{ user }}/work"

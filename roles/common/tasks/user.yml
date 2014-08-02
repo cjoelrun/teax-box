@@ -18,3 +18,9 @@
 
 - name: add host key
   authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+- name: template ansible config
+  template: src=ansible.cfg dest="/home/{{ user }}/.ansible.cfg" owner="{{ user }}" group="{{ user }}" mode=0644
+
+- name: add user to docker group
+  user: groups=docker append=yes

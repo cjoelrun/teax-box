@@ -24,6 +24,10 @@
     - hub
     - traceroute
     - sshpass
+    - docker
+
+- name: enable docker
+  service: name=docker state=started enabled=yes
 
 - name: default pip2
   command: ln -sf /usr/bin/pip2 /usr/local/bin/pip
@@ -41,8 +45,5 @@
     - ansible
     - jedi
     - rope
-
-- name: template ansible config
-  template: src=ansible.cfg dest="/home/{{ user }}/.ansible.cfg" owner="{{ user }}" group="{{ user }}" mode=0644
 
 - include: user.yml

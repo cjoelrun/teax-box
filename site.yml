@@ -1,6 +1,6 @@
 # get python on the box
 - hosts: all
-  remote_user: vagrant
+  remote_user: {{ remote_user }}
   sudo: True
   gather_facts: False
   tasks:
@@ -20,4 +20,4 @@
     - emacs
     - aur
     - x
-    - xmonad
+    - aur

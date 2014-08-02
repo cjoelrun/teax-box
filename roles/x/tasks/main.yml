@@ -9,6 +9,14 @@
     - rxvt-unicode
     - dmenu
     - ttf-inconsolata
+    - xscreensaver
 
 - name: install conkeror
   command: yaourt -S conkeror-git --noconfirm
+
+- name: install xmonad
+  pacman: pkg={{ item }} state=installed
+  with_items:
+    - xmonad
+    - xmonad-contrib
+    - xmobar

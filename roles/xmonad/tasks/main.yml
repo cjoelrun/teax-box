@@ -1,6 +1,0 @@
-- name: install xmonad
-  pacman: pkg={{ item }} state=installed
-  with_items:
-    - xmonad
-    - xmonad-contrib
-    - xmobar
