@@ -23,4 +23,4 @@
   template: src=ansible.cfg dest="/home/{{ user }}/.ansible.cfg" owner="{{ user }}" group="{{ user }}" mode=0644
 
 - name: add user to docker group
-  user: groups=docker append=yes
+  user: name={{user}} groups=docker append=yes

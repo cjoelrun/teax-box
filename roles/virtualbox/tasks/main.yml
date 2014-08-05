@@ -1,0 +1,13 @@
+- name: install virtualbox packages
+  pacman: pkg={{ item }} state=installed
+  with_items:
+    - virtualbox-guest-utils
+    - virtualbox-guest-modules
+    - virtualbox-guest-modules-lts
+    - virtualbox-guest-dkms
+
+- name: enable dmks
+  service: name=dkms state=started enabled=yes
+
+- name: enable vboxservice
+  service: name=vboxservice state=started enabled=yes

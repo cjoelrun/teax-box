@@ -1,6 +1,6 @@
 # get python on the box
 - hosts: all
-  remote_user: {{ remote_user }}
+  remote_user: "{{ remote_user }}"
   sudo: True
   gather_facts: False
   tasks:
@@ -21,3 +21,4 @@
     - aur
     - x
     - aur
+    - virtualbox
