@@ -17,6 +17,9 @@
 - name: install dropbox
   command: yaourt -S dropbox dropbox-cli --noconfirm
 
+- name: install dropbox
+  command: yaourt -S mu --noconfirm
+
 - name: install xmonad
   pacman: pkg={{ item }} state=installed
   with_items:
