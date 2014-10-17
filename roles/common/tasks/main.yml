@@ -67,4 +67,7 @@
   command: swapon /mnt/swap
   when: ansible_swaptotal_mb < 1
 
+- name: set timezone
+  command: timedatectl set-timezone America/Chicago
+
 - include: user.yml
