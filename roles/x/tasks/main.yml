@@ -10,6 +10,7 @@
     - dmenu
     - ttf-inconsolata
     - xscreensaver
+    - chromium
 
 - name: install conkeror
   command: yaourt -S conkeror-git --noconfirm
@@ -26,3 +27,6 @@
     - xmonad
     - xmonad-contrib
     - xmobar
+
+- name: configure emacs gtk
+  command: gconftool-2 -t string --set /desktop/gnome/interface/gtk_key_theme Emacs
