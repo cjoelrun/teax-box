@@ -2,12 +2,12 @@ Vagrant.configure('2') do |config|
 
   config.vm.provider :virtualbox do |vbox, override|
     override.vm.box = 'arch'
-    vbox.customize ["modifyvm", :id, "--memory", 512]
+    vbox.customize ["modifyvm", :id, "--memory", 2048]
   end
 
   config.vm.provider :vmware_fusion do |vbox, override|
     override.vm.box = 'arch'
-    vbox.customize ["modifyvm", :id, "--memory", 512]
+    vbox.customize ["modifyvm", :id, "--memory", 2048]
   end
 
   config.vm.hostname = 'arch.local'
