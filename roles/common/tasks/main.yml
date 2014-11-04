@@ -27,6 +27,7 @@
     - traceroute
     - sshpass
     - docker
+    - libxslt
 
 - name: enable docker
   service: name=docker state=started enabled=yes

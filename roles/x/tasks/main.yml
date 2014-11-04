@@ -11,15 +11,21 @@
     - ttf-inconsolata
     - xscreensaver
     - chromium
+    - chromium-pepper-flash
+    - libreoffice
+    - maim
+    - slop
+    - urxvt-perls
+    - xsel
 
-- name: install conkeror
-  command: yaourt -S conkeror-git --noconfirm
-
-- name: install dropbox
-  command: yaourt -S dropbox dropbox-cli --noconfirm
-
-- name: install dropbox
-  command: yaourt -S mu --noconfirm
+- name install yaourt packages
+  command: yaourt -S {{ item }} --noconfirm
+  with_items:
+    - html2text-with-utf8
+    - mu
+    - dropbox
+    - dropbox-cli
+    - conkeror-git
 
 - name: install xmonad
   pacman: pkg={{ item }} state=installed
