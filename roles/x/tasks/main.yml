@@ -23,6 +23,8 @@
   with_items:
     - html2text-with-utf8
     - mu
+    - libpurple-meanwhile
+    - bitlbee-libpurple
     - dropbox
     - dropbox-cli
     - conkeror-git

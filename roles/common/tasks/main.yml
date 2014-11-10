@@ -71,4 +71,14 @@
 - name: set timezone
   command: timedatectl set-timezone America/Chicago
 
+- name: create config bitlbee directory
+  file: path=/var/lib/bitlbee owner=bitlbee group=bitlbee state=directory recurse=yes
+
+- name: config bitlbee
+  copy: src=templates/bitlbee.conf dest=/etc/bitlbee/bitlbee.conf owner=root group=root mode=0644
+
+- name: enable bitlbee
+  service:
+
 - include: user.yml
+  service: name=bitlbee state=started enabled=yes
